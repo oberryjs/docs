@@ -1,0 +1,17 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "oBerry documentation.",
+  "private": true,
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "author": "Radosław Kaczmarczyk",
+  "devDependencies": {
+    "vitepress": "2.0.0-alpha.17"
+  }
+}
