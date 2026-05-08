@@ -4,8 +4,8 @@
   "description": "oBerry documentation.",
   "private": true,
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
     "preview": "pnpm run build && wrangler dev",
     "deploy": "pnpm run build && wrangler deploy"
   },
