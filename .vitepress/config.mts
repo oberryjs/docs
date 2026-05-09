@@ -5,7 +5,6 @@ export default defineConfig({
   title: "oBerry",
   description: "Modern, reactive, jQuery-like API without needing a build setup or full framework.",
   cleanUrls: true,
-  lastUpdated: true,
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }  ]
   ],
