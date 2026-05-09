@@ -35,18 +35,18 @@ export default defineConfig({
           {
             text: 'Element Wrapper',
             items: [
-              { text: '.id()', link: '/docs/id' },
+              { text: '.id()', link: '/docs/wrapper/id' },
               {
                 text: '.class',
                 items: [
-                  { text: '.get()', link: '/docs/class/get' },
-                  { text: '.add()', link: '/docs/class/add' },
-                  { text: '.toggle()', link: '/docs/class/toggle' },
-                  { text: '.remove()', link: '/docs/class/remove' },
-                  { text: '.has()', link: '/docs/class/has' },
+                  { text: '.get()', link: '/docs/wrapper/class/get' },
+                  { text: '.add()', link: '/docs/wrapper/class/add' },
+                  { text: '.toggle()', link: '/docs/wrapper/class/toggle' },
+                  { text: '.remove()', link: '/docs/wrapper/class/remove' },
+                  { text: '.has()', link: '/docs/wrapper/class/has' },
                 ]
               },
-              { text: '.is()', link: '/docs/is' },
+              { text: '.is()', link: '/docs/wrapper/is' },
             ]
           }
         ]
