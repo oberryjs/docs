@@ -22,11 +22,15 @@ hero:
       link: https://github.com/oberryjs/oBerry
 
 features:
-  - title: Lightweight
+  - icon: 🚀
+    title: Lightweight
     details: oBerry is only 3.5kB gzipped, leaving a minimal footprint on your project.
-  - title: Reactive
+  - icon: ⚡
+    title: Reactive
     details: oBerry comes with a signal-based signal reactivity system, making it easy to dynamically update the DOM as the data changes.
-  - title: TypeScript-first
+  - icon:
+      src: /typescript.svg
+    title: TypeScript-first
     details: oBerry has great TypeScript support right out of the box.
 ---
 
