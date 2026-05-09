@@ -32,6 +32,23 @@ export default defineConfig({
         text: 'API Reference',
         items: [
           { text: '$() function', link: '/docs/selector' },
+          {
+            text: 'Element Wrapper',
+            items: [
+              { text: '.id()', link: '/docs/id' },
+              {
+                text: '.class',
+                items: [
+                  { text: '.get()', link: '/docs/class/get' },
+                  { text: '.add()', link: '/docs/class/add' },
+                  { text: '.toggle()', link: '/docs/class/toggle' },
+                  { text: '.remove()', link: '/docs/class/remove' },
+                  { text: '.has()', link: '/docs/class/has' },
+                ]
+              },
+              { text: '.is()', link: '/docs/is' },
+            ]
+          }
         ]
       }
     ],
