@@ -7,7 +7,10 @@ It is the foundation of the reactivity system. When a `$ref` changes, every comp
 ## Overview
 
 ```ts
-const value = $ref(initialValue);
+import { $ref } from "oberry";
+import type { Ref } from "oberry";
+
+const value: Ref<T> = $ref(initialValue);
 ```
 
 - Returns a getter/setter function
@@ -88,4 +91,28 @@ const addTodo = (text: string) => {
 const removeTodo = (index: number) => {
   todos(prev => prev.filter((_, i) => i !== index));
 }
+```
+
+### Async Loading State
+
+```ts
+const loading: Ref<boolean> = $ref(false);
+const data = $ref(null);
+
+async function fetchData() {
+  loading(true);
+
+  const res = await fetch("/api/data");
+  data(await res.json());
+
+  loading(false);
+}
+
+$effect(() => {
+  if (loading()) {
+    $('#status').text("Loading...");
+  } else {
+    $('#status').text("Done");
+  }
+});
 ```
