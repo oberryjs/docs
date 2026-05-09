@@ -33,6 +33,13 @@ export default defineConfig({
         items: [
           { text: '$() function', link: '/docs/selector' },
           {
+            text: 'Reactivity',
+            items: [
+              { text: 'Overview', link: '/docs/reactivity' },
+              { text: '$ref', link: '/docs/reactivity/ref' },
+            ],
+          },
+          {
             text: 'Element Wrapper',
             items: [
               { text: '.id()', link: '/docs/wrapper/id' },
