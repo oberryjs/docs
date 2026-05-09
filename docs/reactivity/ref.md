@@ -10,7 +10,7 @@ It is the foundation of the reactivity system. When a `$ref` changes, every comp
 import { $ref } from "oberry";
 import type { Ref } from "oberry";
 
-const value: Ref<T> = $ref(initialValue);
+const value: Ref<T> = $ref<T>(initialValue);
 ```
 
 - Returns a getter/setter function
@@ -66,12 +66,18 @@ You can use the `Ref<T>` type:
 const name: Ref<string> = $ref("Willy Wonka");
 ```
 
+Or call the `$ref` function with a generic:
+
+```ts
+const name = $ref<string>("Willy Wonka");
+```
+
 ## Examples
 
 ### Reactive Counter
 
 ```ts
-const count: Ref<number> = $ref(0);
+const count = $ref<number>(0);
 
 $('#counter').bind(count);
 
