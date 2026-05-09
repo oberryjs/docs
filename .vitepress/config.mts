@@ -54,6 +54,10 @@ export default defineConfig({
                 ]
               },
               { text: '.is()', link: '/docs/wrapper/is' },
+              { text: '.bind()', link: '/docs/wrapper/bind'},
+              { text: '.bindInput()', link: '/docs/wrapper/bind/input'},
+              { text: '.bindHTML()', link: '/docs/wrapper/bind/html'},
+              { text: '.bindAttr()', link: '/docs/wrapper/bind/attr'},
             ]
           }
         ]

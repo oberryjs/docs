@@ -62,8 +62,8 @@ stopScope();
 
 `ElementWrapper` comes with multiple methods for binding reactive values to HTML:
 
-- [.bind()](/wrapper/bind)
-- [.bindInput()](/wrapper/bind/input)
-- [.bindHTML()](/wrapper/bind/HTML)
-- [.bindAttr()](/wrapper/bind/attr)
+- [.bind()](../wrapper/bind/index.md)
+- [.bindInput()](../wrapper/bind/input)
+- [.bindHTML()](../wrapper/bind/html)
+- [.bindAttr()](../wrapper/bind/attr)
 
