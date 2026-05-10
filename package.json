@@ -14,6 +14,10 @@
   "author": "Radosław Kaczmarczyk",
   "devDependencies": {
     "vitepress": "2.0.0-alpha.17",
+    "vue": "^3.5.34",
     "wrangler": "^4.90.0"
+  },
+  "dependencies": {
+    "livecodes": "^0.14.1"
   }
 }

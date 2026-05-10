@@ -37,3 +37,8 @@ $("#decrement-btn").on("click", () => {
 
 - `count` is a `ref`, which we bind to `#counter` - any time the ref updates, the content of the counter will update too.
 - We add event listeners to buttons, which increment / decrement the count value
+
+
+## Live Demo
+
+<CodeEmbed />
