@@ -28,9 +28,8 @@ features:
   - icon: ⚡
     title: Reactive
     details: oBerry comes with a signal-based signal reactivity system, making it easy to dynamically update the DOM as the data changes.
-  - icon:
-      src: /typescript.svg
-    title: TypeScript-first
-    details: oBerry has great TypeScript support right out of the box.
+  - icon: 🧩
+    title: Reusable Components
+    details: oBerry provides a simple API for creating reusable components for your apps, powered by browser-native Web Components.
 ---
 
