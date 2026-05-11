@@ -37,6 +37,9 @@ export default defineConfig({
             items: [
               { text: 'Overview', link: '/docs/reactivity' },
               { text: '$ref', link: '/docs/reactivity/ref' },
+              { text: '$computed', link: '/docs/reactivity/computed' },
+              { text: '$effect', link: '/docs/reactivity/effect' },
+              { text: '$effectScope', link: '/docs/reactivity/effect-scope' },
             ],
           },
           {
