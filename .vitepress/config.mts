@@ -107,6 +107,16 @@ export default defineConfig({
               },
               { text: '.css()', link: '/docs/wrapper/css' },
               { text: '.is()', link: '/docs/wrapper/is' },
+              { text: '.remove()', link: '/docs/wrapper/remove' },
+              { text: '.value()', link: '/docs/wrapper/value' },
+              {
+                text: "Attributes",
+                collapsed: false,
+                items: [
+                  { text: '.attr()', link: '/docs/wrapper/attributes/attr'},
+                  { text: '.data()', link: '/docs/wrapper/attributes/data'},
+                ]
+              },
             ]
           }
         ]
