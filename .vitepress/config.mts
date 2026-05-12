@@ -34,6 +34,7 @@ export default defineConfig({
           { text: '$() function', link: '/docs/selector' },
           {
             text: 'Reactivity',
+            collapsed: false,
             items: [
               { text: 'Overview', link: '/docs/reactivity' },
               { text: '$ref', link: '/docs/reactivity/ref' },
@@ -44,22 +45,32 @@ export default defineConfig({
           },
           {
             text: 'Element Wrapper',
+            collapsed: false,
             items: [
               { text: '.id()', link: '/docs/wrapper/id' },
               {
-                text: '.class',
+                text: 'Class Manipulation',
                 items: [
-                  { text: '.get()', link: '/docs/wrapper/class/get' },
-                  { text: '.add()', link: '/docs/wrapper/class/add' },
-                  { text: '.toggle()', link: '/docs/wrapper/class/toggle' },
-                  { text: '.remove()', link: '/docs/wrapper/class/remove' },
-                  { text: '.has()', link: '/docs/wrapper/class/has' },
-                ]
+                  { text: '.class.get()', link: '/docs/wrapper/class/get' },
+                  { text: '.class.add()', link: '/docs/wrapper/class/add' },
+                  { text: '.class.toggle()', link: '/docs/wrapper/class/toggle' },
+                  { text: '.class.remove()', link: '/docs/wrapper/class/remove' },
+                  { text: '.class.has()', link: '/docs/wrapper/class/has' },
+                ],
               },
-              { text: '.html()', link: '/docs/wrapper/html' },
-              { text: '.text()', link: '/docs/wrapper/text' },
-              { text: '.css()', link: '/docs/wrapper/css' },
-              { text: '.is()', link: '/docs/wrapper/is' },
+              {
+                text: 'Content Manipulation',
+                items: [
+
+                  { text: '.html()', link: '/docs/wrapper/html' },
+                  { text: '.text()', link: '/docs/wrapper/text' },
+                  { text: '.empty()', link: '/docs/wrapper/empty' },
+                  { text: '.append()', link: '/docs/wrapper/append' },
+                  { text: '.prepend()', link: '/docs/wrapper/prepend' },
+                  { text: '.after()', link: '/docs/wrapper/after' },
+                  { text: '.before()', link: '/docs/wrapper/before' },
+                ],
+              },
               {
                 text: "Binding",
                 items: [
@@ -69,6 +80,8 @@ export default defineConfig({
                   { text: '.bindAttr()', link: '/docs/wrapper/bind/attr'},
                 ]
               },
+              { text: '.css()', link: '/docs/wrapper/css' },
+              { text: '.is()', link: '/docs/wrapper/is' },
             ]
           }
         ]
