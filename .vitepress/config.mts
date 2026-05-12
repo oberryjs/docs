@@ -180,8 +180,9 @@ export default defineConfig({
               { text: '.length()', link: '/docs/wrapper/length'},
               { text: '.isEmpty()', link: '/docs/wrapper/isEmpty'},
             ]
-          }
-        ]
+          },
+          { text: 'Plugin class', link: '/docs/plugin' },
+        ],
       }
     ],
 
