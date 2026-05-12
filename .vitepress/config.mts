@@ -78,6 +78,13 @@ export default defineConfig({
                 ]
               },
               {
+                text: 'Position',
+                items: [
+                  { text: '.position()', link: '/docs/wrapper/position' },
+                  { text: '.offset()', link: '/docs/wrapper/position/offset' },
+                ]
+              },
+              {
                 text: "Binding",
                 items: [
                   { text: '.bind()', link: '/docs/wrapper/bind'},
