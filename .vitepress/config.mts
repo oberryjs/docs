@@ -51,6 +51,13 @@ export default defineConfig({
             ]
           },
           {
+            text: 'Element Creation',
+            collapsed: false,
+            items: [
+              { text: '$new', link: '/docs/new' }
+            ]
+          },
+          {
             text: 'Element Wrapper',
             collapsed: false,
             items: [
