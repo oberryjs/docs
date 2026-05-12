@@ -61,7 +61,6 @@ export default defineConfig({
               {
                 text: 'Content Manipulation',
                 items: [
-
                   { text: '.html()', link: '/docs/wrapper/html' },
                   { text: '.text()', link: '/docs/wrapper/text' },
                   { text: '.empty()', link: '/docs/wrapper/empty' },
@@ -70,6 +69,13 @@ export default defineConfig({
                   { text: '.after()', link: '/docs/wrapper/after' },
                   { text: '.before()', link: '/docs/wrapper/before' },
                 ],
+              },
+              {
+                text: 'Dimensions',
+                items: [
+                  { text: '.height()', link: '/docs/wrapper/dimensions/height' },
+                  { text: '.width()', link: '/docs/wrapper/dimensions/width' },
+                ]
               },
               {
                 text: "Binding",
