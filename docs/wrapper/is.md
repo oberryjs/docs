@@ -1,6 +1,16 @@
 # ElementWrapper.is()
 
-This method is used for checking if the first element matches a css selector. It returns a `boolean`
+## Definition
+
+```ts
+is(selector: string): boolean
+```
+
+## Description
+
+Used for checking if the first element matches a css selector.
+
+## Example
 
 ```html
 <div id="first" class="active"></div>

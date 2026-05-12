@@ -1,33 +1,42 @@
 # ElementWrapper.id()
 
-The `id()` method is used for:
+## Definition
 
-### Getting an ID of the first element:
+```ts
+id(): string | undefined;
+id(id: string): this;
+```
+
+## Description
+
+Used for either getting or setting an ID of the first element.
+
+## Examples
+
+### Getting an ID:
 
 ```html
 <div id="example"></div>
 ```
 
 ```ts
-$('div').id();
+$('div').id(); // returns "example"
 ```
 
-This will return `"example"`.
-
-### Setting an ID of the first element:
+### Setting an ID:
 
 ```html
-<div id="example"></div>
+<div class="example"></div>
+<div class="example"></div>
 ```
 
 ```ts
-$('div').id('newID');
+$('.example').id('newID');
 ```
 
 After the the div will be updated to:
 
 ```html
-<div id="newID"></div>
+<div id="newID"></div> <!-- Only the first element is changed -->
+<div class="example"></div>
 ```
-
-After the new ID is set, the method returns `this`.

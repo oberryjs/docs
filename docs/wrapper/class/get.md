@@ -1,13 +1,20 @@
 # ElementWrapper.class.get()
 
-This returns an array of strings containing all the classes of the first element.
+## Definition
+```ts
+get(): string[]
+````
+
+## Description
+
+Returns an array of strings containing all the classes of the first element.
+
+## Example
 
 ```html
 <div class="wrapper example anotherClass"></div>
 ```
 
 ```ts
-$('div').class.get();
+$('div').class.get(); // Returns ['wrapper', 'example', 'anotherClass']
 ```
-
-This will return `['wrapper', 'example', 'anotherClass']`

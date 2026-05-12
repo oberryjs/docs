@@ -1,6 +1,16 @@
 # ElementWrapper.class.add()
 
-This method adds a class to all of the selected elements.
+## Definition
+```ts
+add(name: string): this
+```
+
+## Description
+
+Adds one or more classes to all of the selected elements.
+You can add multiple classes by seperating them with spaces.
+
+## Example
 
 ```html
 <div class="example"></div>
@@ -8,32 +18,12 @@ This method adds a class to all of the selected elements.
 ```
 
 ```ts
-$('div').class.add('added');
+$('div').class.add('added another-added');
 ```
 
 The HTML will be updated to:
 
 ```html
-<div class="example added"></div>
-<div class="added"></div>
+<div class="example added another-added"></div>
+<div class="added another-added"></div>
 ```
-
-You can also add multiple classes, by seperating them with a space:
-
-```html
-<div class="example"></div>
-<div></div>
-```
-
-```ts
-$('div').class.add('added anotherAdded');
-```
-
-The HTML will be updated to:
-
-```html
-<div class="example added anotherAdded"></div>
-<div class="added anotherAdded"></div>
-```
-
-After the class is added, the method returns `this`.

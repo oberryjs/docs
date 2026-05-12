@@ -1,7 +1,15 @@
 # ElementWrapper.class.has()
 
-This method is used for checking if the first element has a class.
-It returns a `boolean`.
+## Definition
+```ts
+has(name: string): boolean
+````
+
+
+## Description
+Used for checking if the first element has a class.
+
+## Example
 
 ```html
 <div id="first" class="example"></div>

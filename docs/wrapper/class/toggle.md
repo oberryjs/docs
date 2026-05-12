@@ -1,9 +1,19 @@
 # ElementWrapper.class.toggle()
 
+## Definition
+```ts
+toggle(name: string): this
+```
+
+
+## Description
+
 This method toggles a class on all the elements.
 
 If an elemnt has a specified class, it gets removed.
 If it doesn't, it gets added.
+
+## Example
 
 ```html
 <div></div>
@@ -20,4 +30,3 @@ The HTML will be updated to:
 <div class="example"></div>
 <div></div>
 ```
-After the class is toggled, the method returns `this`.

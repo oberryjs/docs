@@ -1,6 +1,15 @@
 # ElementWrapper.class.remove()
 
-This method removes a class from all the elements.
+## Definition
+```ts
+remove(name: string): this
+```
+
+## Description
+
+Removes a class from all the elements.
+
+## Example
 
 ```html
 <div class="example"></div>
@@ -15,4 +24,3 @@ The HTML will be updated to:
 ```html
 <div></div>
 ```
-After the class is removed, the method returns `this`.

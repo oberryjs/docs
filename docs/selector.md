@@ -1,19 +1,21 @@
 # Element Selection
 
-The `$()` function is the primary entry point for working with the DOM in oBerry. It allows you to select elements using CSS selectors, wrap native DOM nodes, and access the full oBerry chainable API.
-
-## Overview
+## Definition
 
 ```ts
-$(selector)
-$(element)
-$(nodeList)
-$(arrayOfElements)
+$<T extends HTMLElement = HTMLElement>(selector: string): ElementWrapper<T>;
+$<T extends HTMLElement = HTMLElement>(selector: NodeListOf<T>): ElementWrapper<T>;
+$<T extends HTMLElement = HTMLElement>(selector: T): ElementWrapper<T>;
+$<T extends HTMLElement = HTMLElement>(selector: T[]): ElementWrapper<T>;
 ```
+
+## Description
+
+The `$()` function is the primary entry point for working with the DOM in oBerry. It allows you to select elements using CSS selectors, wrap native DOM nodes, and access the full oBerry chainable API.
 
 Returns a wrapped oBerry element collection with chainable methods for DOM manipulation, traversal, and reactivity.
 
-## Usage
+## Examples
 
 ### CSS Selector
 
