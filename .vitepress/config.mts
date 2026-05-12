@@ -45,6 +45,7 @@ export default defineConfig({
           },
           {
             text: 'Components',
+            collapsed: false,
             items: [
               { text: '$component', link: '/docs/component' }
             ]
@@ -56,6 +57,7 @@ export default defineConfig({
               { text: '.id()', link: '/docs/wrapper/id' },
               {
                 text: 'Class Manipulation',
+                collapsed: false,
                 items: [
                   { text: '.class.get()', link: '/docs/wrapper/class/get' },
                   { text: '.class.add()', link: '/docs/wrapper/class/add' },
@@ -66,6 +68,7 @@ export default defineConfig({
               },
               {
                 text: 'Content Manipulation',
+                collapsed: false,
                 items: [
                   { text: '.html()', link: '/docs/wrapper/html' },
                   { text: '.text()', link: '/docs/wrapper/text' },
@@ -78,6 +81,7 @@ export default defineConfig({
               },
               {
                 text: 'Dimensions',
+                collapsed: false,
                 items: [
                   { text: '.height()', link: '/docs/wrapper/dimensions/height' },
                   { text: '.width()', link: '/docs/wrapper/dimensions/width' },
@@ -85,6 +89,7 @@ export default defineConfig({
               },
               {
                 text: 'Position',
+                collapsed: false,
                 items: [
                   { text: '.position()', link: '/docs/wrapper/position' },
                   { text: '.offset()', link: '/docs/wrapper/position/offset' },
@@ -92,6 +97,7 @@ export default defineConfig({
               },
               {
                 text: "Binding",
+                collapsed: false,
                 items: [
                   { text: '.bind()', link: '/docs/wrapper/bind'},
                   { text: '.bindInput()', link: '/docs/wrapper/bind/input'},
