@@ -56,11 +56,19 @@ export default defineConfig({
                   { text: '.has()', link: '/docs/wrapper/class/has' },
                 ]
               },
+              { text: '.html()', link: '/docs/wrapper/html' },
+              { text: '.text()', link: '/docs/wrapper/text' },
+              { text: '.css()', link: '/docs/wrapper/css' },
               { text: '.is()', link: '/docs/wrapper/is' },
-              { text: '.bind()', link: '/docs/wrapper/bind'},
-              { text: '.bindInput()', link: '/docs/wrapper/bind/input'},
-              { text: '.bindHTML()', link: '/docs/wrapper/bind/html'},
-              { text: '.bindAttr()', link: '/docs/wrapper/bind/attr'},
+              {
+                text: "Binding",
+                items: [
+                  { text: '.bind()', link: '/docs/wrapper/bind'},
+                  { text: '.bindInput()', link: '/docs/wrapper/bind/input'},
+                  { text: '.bindHTML()', link: '/docs/wrapper/bind/html'},
+                  { text: '.bindAttr()', link: '/docs/wrapper/bind/attr'},
+                ]
+              },
             ]
           }
         ]

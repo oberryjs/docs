@@ -34,7 +34,7 @@ $('div').id(); // returns "example"
 $('.example').id('newID');
 ```
 
-After the the div will be updated to:
+The div will be updated to:
 
 ```html
 <div id="newID"></div> <!-- Only the first element is changed -->
