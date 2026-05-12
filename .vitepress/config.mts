@@ -44,6 +44,12 @@ export default defineConfig({
             ],
           },
           {
+            text: 'Components',
+            items: [
+              { text: '$component', link: '/docs/component' }
+            ]
+          },
+          {
             text: 'Element Wrapper',
             collapsed: false,
             items: [
