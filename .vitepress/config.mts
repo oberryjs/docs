@@ -117,6 +117,61 @@ export default defineConfig({
                   { text: '.data()', link: '/docs/wrapper/attributes/data'},
                 ]
               },
+              {
+                text: "Event Listeners",
+                collapsed: false,
+                items: [
+                  { text: '.on()', link: '/docs/wrapper/event-listeners/on'},
+                  { text: '.off()', link: '/docs/wrapper/event-listeners/off'},
+                  { text: '.once()', link: '/docs/wrapper/event-listeners/once'},
+                ]
+              },
+              {
+                text: "Visibility",
+                collapsed: false,
+                items: [
+                  { text: '.show()', link: '/docs/wrapper/visibility/show'},
+                  { text: '.hide()', link: '/docs/wrapper/visibility/hide'},
+                  { text: '.toggle()', link: '/docs/wrapper/visibility/toggle'},
+                ]
+              },
+              {
+                text: "Element Navigation",
+                collapsed: false,
+                items: [
+                  { text: '.parent()', link: '/docs/wrapper/navigation/parent'},
+                  { text: '.children()', link: '/docs/wrapper/navigation/children'},
+                  { text: '.siblings()', link: '/docs/wrapper/navigation/siblings'},
+                  { text: '.find()', link: '/docs/wrapper/navigation/find'},
+                  { text: '.closest()', link: '/docs/wrapper/navigation/closest'},
+                ]
+              },
+              {
+                text: "Filtering and Selection",
+                collapsed: false,
+                items: [
+                  { text: '.filter()', link: '/docs/wrapper/filtering/filter'},
+                  { text: '.not()', link: '/docs/wrapper/filtering/not'},
+                  { text: '.eq()', link: '/docs/wrapper/filtering/eq'},
+                  { text: '.first()', link: '/docs/wrapper/filtering/first'},
+                  { text: '.last()', link: '/docs/wrapper/filtering/last'},
+                  { text: '.even()', link: '/docs/wrapper/filtering/even'},
+                  { text: '.odd()', link: '/docs/wrapper/filtering/odd'},
+                ]
+              },
+              {
+                text: "Iteration",
+                collapsed: false,
+                items: [
+                  { text: '.forEach()', link: '/docs/wrapper/iteration/forEach'},
+                  { text: '.map()', link: '/docs/wrapper/iteration/map'},
+                  { text: '.reduce()', link: '/docs/wrapper/iteration/reduce'},
+                ]
+              },
+              { text: '.getArray()', link: '/docs/wrapper/getArray'},
+              { text: '.clone()', link: '/docs/wrapper/clone'},
+              { text: '.length()', link: '/docs/wrapper/length'},
+              { text: '.isEmpty()', link: '/docs/wrapper/isEmpty'},
             ]
           }
         ]
