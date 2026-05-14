@@ -1,0 +1,249 @@
+# oBerry
+
+> Modern, reactive, jQuery-like DOM library. Lightweight (3.5kB gzipped), TypeScript-first, no build setup required. Provides fine-grained signal-based reactivity, a chainable DOM API, and Web Component-based reusable components.
+
+## Installation
+
+```sh
+npm create oberry       # scaffold a new project
+npm install oberry      # add to existing project
+```
+
+## Core Concepts
+
+- **`$()`** — Primary selector/wrapper. Accepts CSS selectors, DOM elements, NodeLists, or arrays. Returns a chainable `ElementWrapper`.
+- **`$ref()`** — Creates a reactive signal. Read by calling it (`count()`), write by calling with a value (`count(5)`) or updater (`count(prev => prev + 1)`).
+- **`$computed()`** — Derives a read-only reactive value from other refs/computeds. Auto-tracks dependencies.
+- **`$effect()`** — Runs a side-effect callback immediately and re-runs when its reactive dependencies change. Returns a stop function.
+- **`$effectScope()`** — Groups multiple effects so they can all be stopped at once. Returns a stop function.
+- **`$component()`** — Registers a custom HTML element (Web Component) with scoped DOM, reactive props, Shadow DOM, and lifecycle hooks.
+- **`$new()`** — Creates new DOM elements with optional children, returning an `ElementWrapper`.
+- **`Plugin` / `use()`** — Extend `ElementWrapper` with custom chainable methods.
+
+## Reactivity API
+
+### $ref
+
+```ts
+import { $ref } from "oberry";
+const count = $ref(0);
+count();          // read → 0
+count(5);         // write
+count(p => p+1);  // updater
+```
+
+### $computed
+
+```ts
+import { $computed } from "oberry";
+const total = $computed(() => price() * qty());
+total(); // read-only
+```
+
+### $effect
+
+```ts
+import { $effect } from "oberry";
+const stop = $effect(() => {
+  document.title = `Count: ${count()}`;
+});
+stop(); // dispose
+```
+
+### $effectScope
+
+```ts
+import { $effectScope } from "oberry";
+const stop = $effectScope(() => {
+  $effect(() => { /* ... */ });
+  $effect(() => { /* ... */ });
+});
+stop(); // stops all effects in scope
+```
+
+## DOM Selection & ElementWrapper
+
+```ts
+$('.btn')                  // CSS selector
+$(document.getElementById('app'))  // native element
+$(nodeList)                // NodeList / HTMLCollection
+$([el1, el2])              // array of elements
+```
+
+### Text & HTML
+
+- `.text()` — get innerText of first element
+- `.text(value)` — set innerText of all elements
+- `.html()` — get innerHTML of first element
+- `.html(value)` — set innerHTML of all elements
+
+### Attributes
+
+- `.attr(key)` — get attribute value
+- `.attr(key, value)` — set attribute
+- `.data(key)` — get data attribute
+- `.data(key, value)` — set data attribute
+- `.id()` — get id
+- `.id(value)` — set id (first element only)
+- `.value()` — get input value
+- `.value(v)` — set input value
+
+### Classes
+
+- `.class.add('name')` — add class(es), space-separated
+- `.class.remove('name')` — remove class
+- `.class.toggle('name')` — toggle class
+- `.class.has('name')` — check if first element has class
+- `.class.get()` — returns `string[]` of classes on first element
+
+### Styles & Dimensions
+
+- `.css({ prop: value })` — set inline styles
+- `.width()` / `.width(n)` — get/set width
+- `.height()` / `.height(n)` — get/set height
+- `.offset()` — `{ top, left }` relative to document
+- `.position()` — `{ top, left }` relative to offset parent
+
+### Visibility
+
+- `.show()` — restore display
+- `.hide()` — set display: none (saves original value)
+- `.toggle()` — toggle visibility
+
+### DOM Manipulation
+
+- `.append(content)` — insert at end of element
+- `.prepend(content)` — insert at beginning of element
+- `.before(content)` — insert before element (sibling)
+- `.after(content)` — insert after element (sibling)
+- `.remove()` — remove elements from DOM
+- `.empty()` — clear innerHTML
+- `.clone(deep?)` — clone elements (deep by default)
+
+### Reactive Bindings
+
+- `.bind(ref)` — bind ref to innerText
+- `.bindHTML(ref)` — bind ref to innerHTML
+- `.bindInput(ref)` — two-way bind ref to input value
+- `.bindAttr(attr, ref)` — bind ref to an attribute
+
+### Events
+
+- `.on(event, callback)` — add event listener
+- `.off(event, callback)` — remove event listener
+- `.once(event, callback)` — one-time event listener
+
+### Navigation / Traversal
+
+- `.children(selector?)` — direct children
+- `.find(selector)` — all matching descendants
+- `.parent()` — parent of first element
+- `.closest(selector)` — nearest matching ancestor
+- `.siblings(selector?)` — all siblings
+
+### Filtering
+
+- `.filter(selector | predicate)` — keep matching elements
+- `.not(selector)` — exclude matching elements
+- `.eq(index)` — element at index
+- `.first()` — first element
+- `.last()` — last element
+- `.odd()` — 1-based odd-indexed elements
+- `.even()` — 1-based even-indexed elements
+
+### Iteration
+
+- `.forEach(cb)` — iterate; each el passed as `ElementWrapper`
+- `.map(cb)` — transform to plain array
+- `.reduce(cb, initial)` — accumulate a value
+
+### Inspection
+
+- `.length()` — number of elements
+- `.isEmpty()` — true if no elements
+- `.is(selector)` — true if first element matches selector
+- `.getArray()` — returns raw `HTMLElement[]`
+
+## Components ($component)
+
+```ts
+import { $ref, $component } from "oberry";
+
+$component<'start'>(
+  'x-counter',
+  ({ $, props, onMounted, onUnmounted, $host, $emit }) => {
+    const { start } = props; // Ref<string | undefined>
+    const count = $ref(Number(start() ?? 0));
+
+    onMounted(() => {
+      $('#counter').bind(count);
+      $('button').on('click', () => count(p => p + 1));
+    });
+
+    onUnmounted(() => { /* cleanup */ });
+
+    return `
+      <h1 id="counter">${start() ?? 0}</h1>
+      <button>+</button>
+    `;
+  }
+);
+```
+
+```html
+<x-counter start="10"></x-counter>
+```
+
+### ComponentContext properties
+
+| Property | Type | Description |
+|---|---|---|
+| `$` | `(selector) => ElementWrapper` | Scoped selector (Shadow DOM only) |
+| `$host` | `ElementWrapper` | Wraps the host custom element |
+| `props` | `Record<string, Ref<string \| undefined>>` | Reactive attribute refs |
+| `onMounted` | `(cb) => void` | Callback after render |
+| `onUnmounted` | `(cb) => void` | Cleanup before destroy |
+| `$emit` | `(event, detail?) => void` | Dispatch CustomEvent (bubbles, composed) |
+
+## Creating Elements ($new)
+
+```ts
+import { $new } from "oberry";
+
+const list = $new(
+  'ul',
+  $new('li').text('Item #1'),
+  $new('li').text('Item #2'),
+);
+$('body').append(list);
+```
+
+## Plugin System
+
+```ts
+import { Plugin, use } from "oberry";
+
+const myPlugin = new Plugin('myPlugin', extend => {
+  extend('highlight', function (color = 'yellow') {
+    return this.css({ backgroundColor: color });
+  });
+});
+
+use(myPlugin); // installing the same plugin twice is a no-op
+
+$('.el').highlight('orange');
+```
+
+> Use `function` (not arrow functions) inside `extend()` so `this` refers to the `ElementWrapper` instance.
+
+## TypeScript
+
+- `Ref<T>` — type for `$ref` values
+- `$<HTMLButtonElement>('.btn')` — generic for typed element wrappers
+- `$component<'prop1' | 'prop2'>('tag', fn)` — generic for typed props autocomplete
+
+## Links
+
+- Docs: https://oberry.pages.dev/docs/introduction
+- Quick Start: https://oberry.pages.dev/docs/quick-start
+- GitHub: https://github.com/oberryjs/oBerry
