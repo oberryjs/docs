@@ -3,7 +3,11 @@
 ## Definition
 
 ```ts
-$component(name: string, fn: (ctx: ComponentContext) => string); 
+$component(
+  name: string, 
+  fn: (ctx: ComponentContext) => string,
+  observedProps?: string[]
+);
 ```
 
 ## Description
@@ -21,9 +25,11 @@ The component function receives a context object:
 
 ```ts
 interface ComponentContext {
-  $: typeof globalSelector;
-  props: Record<string, string>;
-  onMounted: (cb: () => void) => void;
+	$: typeof globalSelector;
+	props: Record<string, string>;
+	onMounted: (cb: () => void) => void;
+	onUnmounted: (cb: () => void) => void;
+	$emit: (event: string, detail?: unknown) => void;
 }
 ```
 
@@ -70,6 +76,32 @@ This is useful for:
 - binding refs to DOM Nodes
 - attaching listeners
 
+### onUnmounted()
+
+Registers a cleanup function that runs right before the component is destroyed or before it remounts due to a prop change. Use this to clear timers or manual event listeners.
+
+```ts
+onUnmounted(() => {
+  console.log('Component unmounted');
+});
+```
+
+### $emit(event, detail)
+
+Dispatches a CustomEvent from the component host. These events are configured to bubble and compose (cross the Shadow DOM boundary), making them easy to listen for in the parent DOM.
+
+```ts
+$emit('update', { value: 10 });
+```
+
+## Observed Attributes
+
+The third argument, `observedProps`, is an array of attribute names. If any attribute listed here is changed on the HTML element, the component will:
+
+- Run the onUnmounted callback.
+- Stop the reactive effect scope.
+- Re-run the component function and mount logic with the new values.
+
 ## Example
 
 ```ts
@@ -92,7 +124,8 @@ $component(
       <h1 id="counter">${props.start ?? 0}</h1>
       <button>+</button>
     `
-  }
+  },
+  ['start']
 );
 ```
 
