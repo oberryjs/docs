@@ -27,6 +27,7 @@ type PropsRefs<K extends string = string> = Record<K, Ref<string | undefined>>;
 
 interface ComponentContext<P extends string = string> {
   $: typeof globalSelector;
+  $host: ElementWrapper;
   props: PropsRefs<P>;
   onMounted: (cb: () => void) => void;
   onUnmounted: (cb: () => void) => void;
@@ -43,6 +44,22 @@ $('button');
 ```
 
 This **does not access the global DOM** — only the component.
+
+### $host
+
+An `ElementWrapper` around the component's host element — the custom element itself in the outer DOM.
+
+Use `$host` when you need to operate on the host element directly, such as setting ARIA attributes or managing focus.
+
+```ts
+$component('my-dialog', ({ $host, onMounted }) => {
+  onMounted(() => {
+    $host.attr('role', 'dialog');
+  });
+
+  return ``;
+});
+```
 
 ### props
 
